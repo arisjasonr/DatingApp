@@ -34,15 +34,15 @@ namespace API.Controllers
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
 
-            /*for (int i = 0; i < computedHash.Length; i++)
+            for (int i = 0; i < computedHash.Length; i++)
             {
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
-            }*/
+            }
 
-            if (computedHash.Where((t, i) => t != user.PasswordHash[i]).Any())
+            /*if (computedHash.Where((t, i) => t != user.PasswordHash[i]).Any())
             {
                 return Unauthorized("Invalid password");
-            }
+            }*/
 
             return new UserDto()
             {
